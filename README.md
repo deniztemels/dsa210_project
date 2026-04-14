@@ -199,15 +199,16 @@ Possible limitations of the project include:
 ## Academic Integrity and AI Use Disclosure
 All external data sources used in this project are publicly available and are properly cited.
 
-AI assistance was used in a limited and transparent way for:
+This project was developed with substantial assistance from an AI assistant. The AI was used throughout the project, and a large portion of the code in this repository was generated or modified by the AI based on my instructions, feedback, and iterative review. Specifically, AI assistance was used for:
 
-- refining the wording of the project description and hypotheses
-- organizing the README and analysis plan
-- reviewing and debugging the data collection pipeline (identifying a stale OpenF1 field name, tuning the weather classification thresholds against known wet and mixed races, and improving output formatting)
-- reviewing the statistical methodology (flagging the need to exclude DNF observations, using one-sided tests for directional hypotheses, applying Holm correction for multiple comparisons in H3, and changing the regression dependent variable to avoid a mechanical dependency with `grid_position`)
+- writing most of the code in `01_data_collection.ipynb`, including the OpenF1 and Open-Meteo API request logic, the retry and rate-limit handling, the `starting_grid` fallback mechanism, the circuit coordinate override table, and the weather classification function
+- writing most of the code in `02_data_cleaning_eda_hypothesis_tests.ipynb`, including the cleaning pipeline, the filter audit, the EDA plots, the correlation heatmap, the hypothesis test implementations, and the regression specification
+- identifying and fixing bugs (for example, a stale OpenF1 field name that produced all-NaN pit-duration values, and poorly calibrated weather thresholds that were wrongly classifying dry races as wet)
+- making statistical decisions such as excluding DNF observations from the analytical dataset, using one-sided tests for directional hypotheses, applying Holm correction for multiple comparisons in H3, and changing the regression dependent variable from `positions_gained` to `finishing_position` to avoid a mechanical dependency with `grid_position`
 
-All coding was written and executed by me, and all data collection decisions, data cleaning, analysis, interpretation, and submission preparation were reviewed and finalized by me. AI suggestions were evaluated and accepted only when they were consistent with the project goals and the underlying data.
+My own role in the project was to define the research topic, choose the data sources and variables, decide which hypotheses to test, guide the development by providing feedback and requesting changes at each step, run the notebooks, inspect the outputs, and confirm that the intermediate and final results were consistent with the project goals. I reviewed every suggestion the AI produced before accepting it, and I am responsible for the final state of the repository.
 
 ## Author
 Deniz Temel  
-DSA 210 – 35683 - 2026
+DSA 210 – 35683 – 2026
+
